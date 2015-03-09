@@ -1,0 +1,110 @@
+<html>
+<head>
+	<meta name="viewport" content="user-scalable=yes,width=device-width,initial-scale=1">
+	<link rel = "stylesheet" href="design.css" />
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,700,300|Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="jquery.fittext.js"></script>
+	<script type="text/javascript">
+		var noImgs = 7;
+		var intervals = 4;
+		var imgShown = 0;
+
+		function load(){
+			slides = new Array(noImgs);
+			slides[0] = document.getElementById("img1");
+			slides[0].style.visibility = 'visible';
+			for(var i=1; i<noImgs; i++){
+				slides[i] = document.getElementById("img" + (1+i))
+			}
+			var myTime = setInterval(next,intervals*1000);
+		}
+
+		function next(){
+			imgShown++
+			if(imgShown==noImgs){
+				imgShown=0;
+			}
+			effect();
+		}
+
+		function effect(){
+			for(var i = 0; i <noImgs; i++){
+				slides[i].style.opacity = "0";
+				slides[i].style.visibility="hidden";
+			}
+			slides[imgShown].style.opacity = "1";
+			slides[imgShown].style.visibility="visible";
+			
+			
+		}
+
+
+	</script>
+	<title>slides</title>
+</head>
+<body onload="load()">
+	<div id="header">
+		<img src="images/logo2.png"/>
+	</div>
+	<div id="slider">
+		<div id="welcome">
+			<span>WELCOME TO STUPIDJC.COM</span>
+		</div>
+		<img id="img1" src="images/img1.jpg"/>
+		<img id="img2" src="images/img2.jpg"/>
+		<img id="img3" src="images/img3.jpg"/>
+		<img id="img4" src="images/img4.jpg"/>
+		<img id="img5" src="images/img5.jpg"/>
+		<img id="img6" src="images/img6.jpg"/>
+		<img id="img7" src="images/img7.jpg"/>
+		
+	</div>
+	<div id="homeNav">
+		<a href="GammaGallery/photos.html">
+			<div class="homeNavItems" id="photosNav">
+				<div class="homeNavLabel">
+					<span>Photos</span>
+				</div>
+				<div class="homeNavImages">
+					<img src="images/photosNav.png"/>
+				</div>
+			</div>
+		</a>
+		<div class="homeNavItems" id="videosNav">
+			<div class="homeNavLabel">
+				<span>Videos</span>
+			</div>
+			<div class="homeNavImages">
+				<img src="images/videosNav.png">
+			</div>
+		</div>
+
+		<div class="homeNavItems" id="projectsNav">
+			<div class="homeNavLabel">
+				<span>Projects</span>
+			</div>
+			<div class="homeNavImages">
+				<img src="images/projectsNav.png">
+			</div>
+		</div>
+
+		<div class="homeNavItems" id="aboutNav">
+			<div class="homeNavLabel">
+				<span>About Me</span>
+			</div>
+			<div class="homeNavImages">
+				<img src="images/aboutNav.png"/>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		jQuery('#welcome').fitText(1.5);
+		jQuery('.homeNavLabel').fitText(1.5);
+
+	</script>
+
+	
+</body>
+</html>
